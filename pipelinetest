@@ -23,5 +23,6 @@ node {
             break
         }
      println("coreVersion:"+coreVersion)
+     println("core:"+core)
     }
 }
