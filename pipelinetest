@@ -1,15 +1,14 @@
-node {
-    stage "Create build output"
-    {
-    
-    println ("hello")
-    //sh "cat ${env.WORKSPACE}/README"
-
-    // Write an useful file, which is needed to be archived.
-    //writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
-
-    // Write an useless file, which is not needed to be archived.
-    //writeFile file: "output/uselessfile.md", text: "This file is useless, no need to archive it."
+node { 
+    stage('Build') { 
+        sh 'make' 
     }
-   
+    stage('Test') {
+        sh 'make check'
+        junit 'reports/**/*.xml' 
+    }
+    if (currentBuild.currentResult == 'SUCCESS') {
+        stage('Deploy') {
+            sh 'make publish'
+        }
+    }
 }
