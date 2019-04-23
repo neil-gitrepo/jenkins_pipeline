@@ -1,4 +1,5 @@
-import 
+import jenkins.*
+import hudson.*
 node { 
     stage('Build') { 
         println("build")
