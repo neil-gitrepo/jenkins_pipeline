@@ -1,14 +1,8 @@
 node { 
     stage('Build') { 
-        sh 'make' 
+        println("build")
     }
     stage('Test') {
-        sh 'make check'
-        junit 'reports/**/*.xml' 
-    }
-    if (currentBuild.currentResult == 'SUCCESS') {
-        stage('Deploy') {
-            sh 'make publish'
-        }
+        sh 'cat ${env.WORKSPACE}/README'
     }
 }
