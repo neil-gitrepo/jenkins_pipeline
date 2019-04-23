@@ -1,8 +1,8 @@
+import 
 node { 
     stage('Build') { 
         println("build")
-        println("WORKSPACE:"+${WORKSPACE})
-        println("ENV:"+${env})
+        println("env.WORKSPACE)
         
     }
     stage('Test') {
