@@ -10,9 +10,16 @@ node {
     stage('Test') {
     def content = new File("${env.WORKSPACE}@script/README").readLines()
     def coreVersion = ''
+    def core=''
+    def m='.*@(.*)$'
     for (line in content)
         {
             coreVersion=line.split("@")[1]
+           
+            
+            def pattern = ~/.*@(.*)$/
+            def matcher = line =~ pattern
+            core = matcher[0][1]
             break
         }
      println("coreVersion:"+coreVersion)
