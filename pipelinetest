@@ -8,7 +8,7 @@ node {
         
     }
     stage('Test') {
-    def content = new File("${env.WORKSPACE}/README").readLines()
+    def content = new File("${env.WORKSPACE}@script/README").readLines()
     println(content)
     }
 }
