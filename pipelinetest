@@ -1,6 +1,7 @@
 node { 
     stage('Build') { 
         println("build")
+        println("${env}")
     }
     stage('Test') {
         sh 'cat ${env.WORKSPACE}/README'
