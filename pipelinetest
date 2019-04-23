@@ -3,7 +3,7 @@ import hudson.*
 node { 
     stage('Build') { 
         println("build")
-        println("env.WORKSPACE)
+        println(env.WORKSPACE)
         
     }
     stage('Test') {
