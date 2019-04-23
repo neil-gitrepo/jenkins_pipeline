@@ -1,5 +1,6 @@
 import jenkins.*
 import hudson.*
+import java.io.File
 node { 
     stage('Build') { 
         println("build")
@@ -7,6 +8,7 @@ node {
         
     }
     stage('Test') {
-        sh 'cat ${env.WORKSPACE}/README'
+    def content = new File("${env.WORKSPACE}/README").readLines()
+    println(content)
     }
 }
