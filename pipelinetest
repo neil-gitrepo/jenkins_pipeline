@@ -9,6 +9,12 @@ node {
     }
     stage('Test') {
     def content = new File("${env.WORKSPACE}@script/README").readLines()
-    println(content)
+    def coreVersion = ''
+    for (line in content)
+        {
+            coreVersion=line.split("@")[1]
+            break
+        }
+     println("coreVersion:"+coreVersion)
     }
 }
